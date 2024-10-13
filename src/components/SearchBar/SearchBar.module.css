@@ -1,15 +1,19 @@
 .form{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	min-width: 300px;
+	min-width: 240px;
 	max-width: 600px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.input {
+.form__inputEl{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 100%;
+}
+
+.form__input {
 	outline:var(--secondaryColor);
       padding: 8px 10px 8px 36px;
 	width: 100%;
@@ -18,27 +22,26 @@
 	transition: box-shadow 0.3s linear;
 	color: var(--accentColor);
 	font-size: 20px;
+	margin-bottom: 6px;
 }
 
-.input:hover,
-.input:focus {
+.form__input:hover,
+.form__input:focus {
 	box-shadow: var(--boxShadow);
 }
 
-.errorForm{}
+.form__error{
+	color: rgba(189, 15, 15, 0.637);
+	font-weight: 600;
+}
 
-.formBtn{
+.form__btn{
 	position: absolute;
 	left: 0;
 	padding-left: 8px;
 	background-color: transparent;
 }
 
-.btnIcon{
+.form__btnIcon{
 	fill: var(--accentColor);
-}
-
-.formBtn:hover ~ .btnIcon,
-.formBtn:focus ~.btnIcon{
-	fill: red;
 }
