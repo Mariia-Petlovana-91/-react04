@@ -7,37 +7,38 @@ export default function ImageGalery({ array }) {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [selectedImage, setSelectedImage] = useState(null);
 
-	function openModal (ar) {
+	function openModal(ar) {
 		setSelectedImage(ar);
 		setModalIsOpen(true);
-	};
+	}
 
-	function closeModal () {
+	function closeModal() {
 		setModalIsOpen(false);
 		setSelectedImage(null);
-	};
+	}
 
-	function handleItemClick (ar) {
+	function onItemClick(ar) {
 		if (selectedImage && selectedImage.id === ar.id) {
 			closeModal();
 		} else {
 			openModal(ar);
 		}
-	};
+	}
 
 	return (
 		<ul className={css.list}>
-			{
-			 array.map((ar) => {
-					<li className={css.item}
-						key={ar.id}>
-						onClick={() => handleItemClick(ar)}
-						<ImageCard description={ar.alt_description}
-							img={ar.urls.small}
-						/>
-					</li>
-				})
-			}
+			{Array.isArray(array) && array.map((ar) => (
+				<li
+					className={css.item}
+					key={ar.id}
+					onClick={() => onItemClick(ar)}
+				>
+					<ImageCard 
+						urls={ar.urls}
+						alt_description={ar.alt_description} 
+					/>
+				</li>
+			))}
 			{selectedImage && (
 				<ImageModal
 					isOpen={modalIsOpen}
@@ -46,8 +47,10 @@ export default function ImageGalery({ array }) {
 					alt={selectedImage.alt_description}
 					likes={selectedImage.likes}
 					links={selectedImage.links}
+					userFirstName={selectedImage.user.first_name}
+					userLastName={selectedImage.user.last_name}
 				/>
-                  )}
+			)}
 		</ul>
-	)
+	);
 }

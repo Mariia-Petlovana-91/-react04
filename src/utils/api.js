@@ -19,7 +19,7 @@ export default async function getDataImages(searchValue, nextPage) {
         });
         return responseArray.data;
     } catch (error) {
-       console.error("Error fetching data:", error.response ? error.response.data : error.message);;
+       console.error(`Error fetching data: ${error.message}`);;
     }
 }
 

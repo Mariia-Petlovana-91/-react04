@@ -1,39 +1,29 @@
 import css from '../SearchBar/SearchBar.module.css';
-import { Formik, ErrorMessage, Field, Form } from 'formik';
 import { BsSearch } from "react-icons/bs";
-import validationSchema from '../../utils/validateSchema';
 
-export default function SearchBar({onSubmit}) {
-     
-	const INIT__VALUE = {
-		search: "",
-	}
-	
+export default function SearchBar({ onSubmit, setSearchTerm}) {
+  const updateSearchValue = (e) => {
+    setSearchTerm(e.target.value);
+  };
 	return (
-	  <header>
-            <Formik initialValues={INIT__VALUE}
-			validationSchema={validationSchema}
-			onSubmit={onSubmit}>
-				<Form className={css.form}>
+	  <header className={css.header}>
+			<form className={css.form}
+			      onSubmit={onSubmit}>
 					<div className={css.form__inputEl}>
-						<Field className={css.form__input}
+						<input className={css.form__input}
 				                  name="search"
 					            type="text"
-                                          placeholder="Search images and photos"
+						      placeholder="Search images and photos"
+						      onChange={updateSearchValue}
 						/>
 						<button className={css.form__btn}
 				                  type='submit'>
 				                  <BsSearch className={css.form__btnIcon}
 					              size={20}
-				                  />
+							/>
 			                 </button>	
 					</div>
-			            <ErrorMessage className={css.form__error}
-				           name="search"
-				           component="span"
-				      />
-			</Form>
-	     </Formik>
+			</form>
 	  </header>
 
 	)

@@ -1,3 +1,9 @@
+.header{
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+      border-bottom: 1px solid var(--accentColor);
+}
+
 .form{
 	min-width: 240px;
 	max-width: 600px;

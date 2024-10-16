@@ -1,0 +1,83 @@
+.modal{
+    padding: 32px;
+    
+    background-color: var(--accentColor);
+    height: 100%;
+
+}
+
+.modalCloseEl{
+	display: block;
+	margin-bottom: 24px;
+}
+
+.modalImg{
+	width: 600px;
+	height: 400px;
+	object-fit: cover;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.modalCloseBtn{
+	margin-left: auto;
+	margin-bottom: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 32px;
+	height: 32px;
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid var(--accentColor);
+	transition: box-shadow 0.3s linear, background-color 0.3s linear;
+}
+
+.modalCloseBtn:hover,
+.modalCloseBtn:focus{
+	box-shadow: var(--box-shadow);
+	background-color: var(--secondaryColor);
+}
+
+.modalAboutEl{
+	display: flex;
+	flex-wrap: wrap;
+      max-width: 600px;
+	border-radius: 5px;
+	border: 1px solid var(--accentColor);
+	padding: 32px 16px 32px 16px;
+	margin-right: auto;
+	margin-left: auto;
+	justify-content: space-evenly;
+}
+
+.modalAuthorText{
+	font-size: 16px;
+	color: white;
+}
+
+.modalIcon{
+	fill: white;
+}
+
+.modalLikes{
+	gap: 10px;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	color: white;
+	font-weight: 800;
+}
+
+.modalLink{
+	font-size: 16px;
+	border-bottom: 1px solid white;
+	color: white;
+	transition: color 0.3s linear, border-color 0.3s linear;
+}
+
+.modalLink:hover,
+.modalLink:focus{
+   color: var(--secondaryColor);
+   border-color: var(--secondaryColor);
+}
