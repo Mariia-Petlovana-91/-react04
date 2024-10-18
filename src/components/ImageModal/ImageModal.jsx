@@ -25,6 +25,7 @@ export default function ImageModal({ isOpen,
       contentLabel="Item Details"
       overlayClassName={css.modalOverlay}
       onAfterOpen={afterOpen}
+      bodyOpenClassName="modal-open"
     ><div className={css.modalCloseEl}>
         <button
           type='button'
