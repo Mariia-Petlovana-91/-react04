@@ -12,9 +12,9 @@ export default function ImageModal({ isOpen,
   userFirstName,
   userLastName }) {
 
-  //   const afterOpen = () => {
-  //   document.querySelector('.ReactModal__Content').classList.add(css['modal-open']);
-  // };
+    const afterOpen = () => {
+    document.querySelector('.ReactModal__Content').classList.add(css['modal-open']);
+  };
 
   return (
     <Modal
@@ -24,7 +24,7 @@ export default function ImageModal({ isOpen,
       onRequestClose={onRequestClose}
       contentLabel="Item Details"
       overlayClassName={css.modalOverlay}
-      // onAfterOpen={afterOpen}
+      onAfterOpen={afterOpen}
     ><div className={css.modalCloseEl}>
         <button
           type='button'
