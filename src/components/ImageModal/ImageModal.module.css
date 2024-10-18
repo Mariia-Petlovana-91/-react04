@@ -1,10 +1,28 @@
-.modal{
-    padding: 32px;
-    
-    background-color: var(--accentColor);
-    height: 100%;
-
+.modal {
+	padding: 32px;
+	background-color: var(--accentColor);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: transform 0.3s ease-out;
+	border-radius: 5px;
 }
+
+.modal-open {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.modalOverlay {
+	background-color: rgba(0, 0, 0, 0.952);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+
 
 .modalCloseEl{
 	display: block;
@@ -12,11 +30,21 @@
 }
 
 .modalImg{
-	width: 600px;
-	height: 400px;
+	max-width: 300px;
+	max-height: 200px;
 	object-fit: cover;
 	margin-right: auto;
 	margin-left: auto;
+	border-radius: 5px;
+
+}
+
+@media (min-width:768px) {
+	.modalImg{
+		min-width: 600px;
+		width: 100%;
+		max-height: 300px;
+	}
 }
 
 .modalCloseBtn{

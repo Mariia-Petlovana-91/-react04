@@ -11,6 +11,11 @@ export default function ImageModal({ isOpen,
   links,
   userFirstName,
   userLastName }) {
+
+    const afterOpen = () => {
+    document.querySelector('.ReactModal__Content').classList.add(css['modal-open']);
+  };
+
   return (
     <Modal
       ariaHideApp={false}
@@ -18,6 +23,10 @@ export default function ImageModal({ isOpen,
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Item Details"
+      overlayClassName={css.modalOverlay}
+      onAfterOpen={afterOpen}
+      bodyOpenClassName="modal-open"
+      closeTimeoutMS={3000}
     ><div className={css.modalCloseEl}>
         <button
           type='button'
@@ -51,7 +60,7 @@ export default function ImageModal({ isOpen,
 		       target="_blank"
 		       rel="noopener noreferrer"
 		       className={css.modalLink}>
-          View the picture
+          View the whole picture
          </a>   
         </div>    
     </Modal>
