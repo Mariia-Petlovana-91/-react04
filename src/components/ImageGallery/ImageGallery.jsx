@@ -16,6 +16,7 @@ export default function ImageGallery({ array, onImgClick }) {
 						urls={ar.urls}
 						alt_description={ar.alt_description} 
 						onImgClick={() => onImgClick(ar)}
+						ar={ar}
 					/>
 				</li>
 			))}
