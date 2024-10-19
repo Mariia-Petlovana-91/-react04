@@ -16,7 +16,7 @@ export default function App() {
   const [load, setLoad] = useState(false);
   const [loaderBtn, setLoaderBtn] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState('');
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [selectedImage, setSelectedImage] = useState(null);

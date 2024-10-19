@@ -1,61 +1,139 @@
+// import css from '../ImageModal/ImageModal.module.css';
+// import Modal from 'react-modal';
+// Modal.setAppElement('#root');
+// import { SlLike } from "react-icons/sl";
+
+// export default function ImageModal({ isOpen,
+//   onRequestClose,
+//   img,
+//   alt,
+//   likes,
+//   links,
+//   userFirstName,
+//   userLastName }) {
+
+//   const afterOpen = () => {
+//     document.querySelector('.ReactModal__Content').classList.add(css['modal-open']);
+//   }
+
+//   return (
+//     <Modal
+//        onAfterOpen={afterOpen}
+//       ariaHideApp={false}
+//       className={css.modal}
+//       isOpen={isOpen}
+//       onRequestClose={onRequestClose}
+//       contentLabel="Item Details"
+//       overlayClassName={css.modalOverlay}
+//       bodyOpenClassName={css.modalOpen}
+//     ><div className={css.modalCloseEl}>
+//         <button
+//           type='button'
+//           onClick={onRequestClose}
+//           className={css.modalCloseBtn}
+//         >❌
+//         </button>
+//         <img
+//         className={css.modalImg}
+//         src={img}
+//         alt={alt}
+//         />
+//       </div>
+//       <div className={css.modalAboutEl}>
+//         <p className={css.modalAuthorText}>
+//           <strong>
+//           Author: &#8201;
+//            </strong>
+//           {userFirstName}&#8201;
+//           {userLastName}
+//         </p>
+//           <p className={css.modalLikes}>
+//            <SlLike
+//             className={css.modalIcon}
+//             size={24}
+//             aria-label="Likes"
+//            />  &#8201;
+//            &#8201;{likes}
+//          </p>
+// 	       <a href={links?.download || '#'}
+// 		       target="_blank"
+// 		       rel="noopener noreferrer"
+// 		       className={css.modalLink}>
+//           View the whole picture
+//          </a>
+//         </div>
+//     </Modal>
+//   );
+// };
+
+
 import css from '../ImageModal/ImageModal.module.css';
 import Modal from 'react-modal';
-Modal.setAppElement('#root');
 import { SlLike } from "react-icons/sl";
 
-export default function ImageModal({ isOpen,
+Modal.setAppElement('#root');
+
+export default function ImageModal({
+  isOpen,
   onRequestClose,
   img,
   alt,
   likes,
   links,
   userFirstName,
-  userLastName }) {
+  userLastName
+}) {
+
+    const afterOpen = () => {
+    document.querySelector('.ReactModal__Content').classList.add(css['modal-open']);
+  };
 
   return (
-    <Modal
+   <Modal
       ariaHideApp={false}
       className={css.modal}
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Item Details"
       overlayClassName={css.modalOverlay}
-    ><div className={css.modalCloseEl}>
+      onAfterOpen={afterOpen}
+      bodyOpenClassName="modal-open"
+      closeTimeoutMS={3000}
+    >
+      <div className={css.modalCloseEl}>
         <button
-          type='button'
+          type="button"
           onClick={onRequestClose}
           className={css.modalCloseBtn}
         >❌
         </button>
         <img
-        className={css.modalImg}
-        src={img}
-        alt={alt}
+          className={css.modalImg}
+          src={img}
+          alt={alt}
         />
       </div>
       <div className={css.modalAboutEl}>
         <p className={css.modalAuthorText}>
-          <strong>
-          Author: &#8201;
-           </strong> 
-          {userFirstName}&#8201;
-          {userLastName}
+          <strong>Author:&#8201;</strong> 
+          {userFirstName}&#8201;{userLastName}
         </p>
-          <p className={css.modalLikes}>
-           <SlLike
+        <p className={css.modalLikes}>
+          <SlLike
             className={css.modalIcon}
             size={24}
             aria-label="Likes"
-           />  &#8201;
-           &#8201;{likes}
-         </p>
-	       <a href={links?.download || '#'}
-		       target="_blank"
-		       rel="noopener noreferrer"
-		       className={css.modalLink}>
+          />&#8201;{likes}
+        </p>
+        <a
+          href={links?.download || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={css.modalLink}
+        >
           View the whole picture
-         </a>   
-        </div>    
+        </a>
+      </div>
     </Modal>
   );
-};
+}
