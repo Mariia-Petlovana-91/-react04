@@ -4,13 +4,13 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	
+	transform: translate(-50%, -50%) scale(0.6);
 	transition: transform 0.3s ease-out;
 	border-radius: 5px;
 }
 
 .modal-open {
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%) scale(1);
 }
 
 .modalOverlay {
