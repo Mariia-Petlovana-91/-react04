@@ -13,7 +13,7 @@ export default function ImageModal({ isOpen,
   userLastName }) {
 
     const afterOpen = () => {
-    document.querySelector('.ReactModal__Content').classList.add(css['modal-open']);
+    document.querySelector('.ReactModal__Overlay--after-open').classList.add(css['modal-open']);
   };
 
   return (
