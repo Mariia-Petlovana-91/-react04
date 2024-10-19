@@ -85,7 +85,7 @@ export default function ImageModal({
 }) {
 
     const afterOpen = () => {
-    document.querySelector('.ReactModal__Content').classList.add(css['modal-open']);
+    document.querySelector('.ReactModal__Content').classList.add(css['modalOpen']);
   };
 
   return (
