@@ -97,7 +97,7 @@ export default function ImageModal({
       contentLabel="Item Details"
       overlayClassName={css.modalOverlay}
       onAfterOpen={afterOpen}
-      bodyOpenClassName="modal-open"
+      bodyOpenClassName={css.modalOpen}
       closeTimeoutMS={3000}
     >
       <div className={css.modalCloseEl}>
