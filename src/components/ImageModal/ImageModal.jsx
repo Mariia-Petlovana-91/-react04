@@ -12,10 +12,6 @@ export default function ImageModal({ isOpen,
   userFirstName,
   userLastName }) {
 
-    const afterOpen = () => {
-    document.querySelector('.ReactModal__Overlay--after-open').classList.add(css['modal-open']);
-  };
-
   return (
     <Modal
       ariaHideApp={false}
@@ -24,8 +20,6 @@ export default function ImageModal({ isOpen,
       onRequestClose={onRequestClose}
       contentLabel="Item Details"
       overlayClassName={css.modalOverlay}
-      onAfterOpen={afterOpen}
-      bodyOpenClassName="modal-open"
     ><div className={css.modalCloseEl}>
         <button
           type='button'
