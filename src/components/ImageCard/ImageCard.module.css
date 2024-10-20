@@ -11,5 +11,6 @@
 .img:focus {
 	box-shadow: var(--boxShadow);
 	cursor: pointer;
-	transform: scale(1.01);
+	transform: scale(1.1);
 }
+

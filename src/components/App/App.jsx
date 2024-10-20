@@ -12,11 +12,11 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 export default function App() {
   const [imagesArray, setImagesArray] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const [load, setLoad] = useState(false);
   const [loaderBtn, setLoaderBtn] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
-  const [page, setPage] = useState('');
+  const [page, setPage] = useState(0);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [selectedImage, setSelectedImage] = useState(null);
@@ -45,6 +45,18 @@ export default function App() {
       fetchImages(searchTerm, page);
     }
   }, [searchTerm]);
+
+  function onSearchSubmit(inputValue) {
+    setSearchTerm(inputValue);
+    setImagesArray([]);
+    setPage(1);
+    setErrorMessage(false);
+  }
+
+  function onClickLoadeMore() {
+    fetchImages(searchTerm, page);
+    setPage((prevPage) => prevPage + 1);
+  }
   
   function openModal(ar) {
     setSelectedImage(ar);
@@ -64,13 +76,6 @@ export default function App() {
     }
   }
 
-  function onSearchSubmit(inputValue) {
-    setSearchTerm(inputValue);
-    setImagesArray([]);
-    setPage(1);
-    setErrorMessage(false);
-  }
-
   useEffect(() => {
   if (modalIsOpen) {
     document.body.style.overflow = 'hidden';
@@ -80,7 +85,9 @@ export default function App() {
   return () => {
     document.body.style.overflow = 'auto';
   };
-}, [modalIsOpen]);
+  }, [modalIsOpen]);
+  
+  
   
   return (
     <>
@@ -98,7 +105,7 @@ export default function App() {
          />
         {loaderBtn &&
           <LoadMoreBtn
-            onSearchNext={() => fetchImages(searchTerm, page)}
+            onSearchNext={onClickLoadeMore}
           />}
         {errorMessage && <ErrorMessage />}
 
