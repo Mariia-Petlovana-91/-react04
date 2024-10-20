@@ -22,10 +22,10 @@ export default function App() {
 	const [selectedImage, setSelectedImage] = useState(null);
   
   async function fetchImages(searchValue, pageNumber = 1) {
-  try {
-    setLoad(true);
-    const data = await getDataImages(searchValue, pageNumber);
-    if (data.results.length === 0) {
+    try {
+     setLoad(true);
+     const data = await getDataImages(searchValue, pageNumber);
+     if (data.results.length === 0) {
       setErrorMessage(true);
       setLoaderBtn(false);
       return;
@@ -33,10 +33,10 @@ export default function App() {
     setImagesArray((prevImages) => prevImages ? [...prevImages, ...data.results] : data.results);
     setLoaderBtn(pageNumber < data.total_pages);
     setPage(pageNumber + 1);
-  } catch (error) {
-    toast.error(`${error.message}🚨`);
-  } finally {
-    setLoad(false);
+   } catch (error) {
+     toast.error(`${error.message}🚨`);
+   } finally {
+     setLoad(false);
     }
   }
   
@@ -86,8 +86,6 @@ export default function App() {
     document.body.style.overflow = 'auto';
   };
   }, [modalIsOpen]);
-  
-  
   
   return (
     <>

@@ -7,7 +7,7 @@ const PER_PAGE = 12;
 export default async function getDataImages(searchValue, nextPage) {
 
     try {
-        const responseArray = await axios.get(`https://api.unsplash.com/search/photos`, {
+        const responseArray = await axios.get(`${BASE_URL}`, {
             params: {
                 query: searchValue,
                 per_page: PER_PAGE,

@@ -22,22 +22,28 @@ export default function SearchBar({ onSubmit }) {
 	}
 
 	return (
-	  <header className={css.header}>
-			<form className={css.form} onSubmit={handleSubmit}>
-					<div className={css.form__inputEl}>
-						<input 
-                            className={css.form__input}
-                            name="search" // Додано ім'я
-                            type="text"
-                            placeholder="Search images and photos"
-                            onChange={onInputChange}
-                            value={inputValue} // Прив'язка до локального стану
-						/>
-						<button className={css.form__btn} type='submit'>
-							<BsSearch className={css.form__btnIcon} size={20} />
-						</button>	
-					</div>
+	     <header className={css.header}>
+			<form className={css.form}
+				onSubmit={handleSubmit}
+			>
+				<div className={css.form__inputEl}>
+					<input 
+                                className={css.form__input}
+                                name="search"
+                                type="text"
+                                placeholder="Search images and photos"
+                                onChange={onInputChange}
+                                value={inputValue}
+					/>
+				      <button className={css.form__btn}
+					type='submit'
+				      >
+					<BsSearch className={css.form__btnIcon}
+						size={20}
+					/>
+				      </button>	
+				</div>
 			</form>
-	  </header>
+	      </header>
 	);
 }

@@ -1,6 +1,9 @@
 import css from '../ImageCard/ImageCard.module.css';
 
-export default function ImageCard({ urls, alt_description, onImgClick}) {
+export default function ImageCard({ urls,
+	alt_description,
+	onImgClick
+}) {
 	return (
 		<>
 			<img className={css.img}
