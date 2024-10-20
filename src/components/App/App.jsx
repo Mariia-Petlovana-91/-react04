@@ -16,12 +16,11 @@ export default function App() {
   const [load, setLoad] = useState(false);
   const [loaderBtn, setLoaderBtn] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
-  const [page, setPage] = useState(0);
-
+  const [page, setPage] = useState(1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [selectedImage, setSelectedImage] = useState(null);
   
-  async function fetchImages(searchValue, pageNumber = 1) {
+  async function fetchImages(searchValue, pageNumber) {
     try {
      setLoad(true);
      const data = await getDataImages(searchValue, pageNumber);
@@ -32,7 +31,6 @@ export default function App() {
     }
     setImagesArray((prevImages) => prevImages ? [...prevImages, ...data.results] : data.results);
     setLoaderBtn(pageNumber < data.total_pages);
-    setPage(pageNumber + 1);
    } catch (error) {
      toast.error(`${error.message}🚨`);
    } finally {
@@ -44,7 +42,7 @@ export default function App() {
     if (searchTerm) {
       fetchImages(searchTerm, page);
     }
-  }, [searchTerm]);
+  }, [searchTerm, page]);
 
   function onSearchSubmit(inputValue) {
     setSearchTerm(inputValue);
@@ -54,7 +52,6 @@ export default function App() {
   }
 
   function onClickLoadeMore() {
-    fetchImages(searchTerm, page);
     setPage((prevPage) => prevPage + 1);
   }
   
